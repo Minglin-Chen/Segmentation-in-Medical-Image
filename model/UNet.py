@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class unet(nn.Module):
+class UNet(nn.Module):
 
     def __init__(self, img_chn=3, n_cls=2):
         super(unet, self).__init__()
@@ -53,7 +53,7 @@ class unet(nn.Module):
         self.decoder_lyr1 = nn.Sequential(
             nn.Conv2d(128, 64, 3, padding=1), nn.ReLU(inplace=True),
             nn.Conv2d(64, 64, 3, padding=1), nn.ReLU(inplace=True),
-            nn.Conv2d(64, img_chn, 1, padding=0), nn.ReLU(inplace=True))
+            nn.Conv2d(64, n_cls, 1, padding=0), nn.ReLU(inplace=True))
 
         # Init weights
         for m in self.modules():
