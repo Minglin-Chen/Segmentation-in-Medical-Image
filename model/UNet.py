@@ -5,7 +5,7 @@ import torch.nn.functional as F
 class UNet(nn.Module):
 
     def __init__(self, img_chn=3, n_cls=2):
-        super(unet, self).__init__()
+        super(UNet, self).__init__()
 
         # Encoder
         self.encoder_lyr1 = nn.Sequential(
