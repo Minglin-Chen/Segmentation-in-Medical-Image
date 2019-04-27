@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 class UNet(nn.Module):
 
-    def __init__(self, img_chn=3, n_cls=2):
+    def __init__(self, img_chn=1, n_cls=2):
         super(UNet, self).__init__()
 
         # Encoder
@@ -53,7 +53,7 @@ class UNet(nn.Module):
         self.decoder_lyr1 = nn.Sequential(
             nn.Conv2d(128, 64, 3, padding=1), nn.ReLU(inplace=True),
             nn.Conv2d(64, 64, 3, padding=1), nn.ReLU(inplace=True),
-            nn.Conv2d(64, n_cls, 1, padding=0), nn.ReLU(inplace=True))
+            nn.Conv2d(64, n_cls, 1, padding=0))
 
         # Init weights
         for m in self.modules():
@@ -90,7 +90,7 @@ class UNet(nn.Module):
 if __name__=='__main__':
 
     # 1. fake data
-    images = torch.rand(32, 3, 256, 256)
+    images = torch.rand(32, 1, 256, 256)
 
     # 2. build the model
     net = unet()
