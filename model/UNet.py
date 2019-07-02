@@ -58,7 +58,7 @@ class UNet(nn.Module):
         # Init weights
         for m in self.modules():
             if isinstance(m, nn.Conv2d) or isinstance(m, nn.ConvTranspose2d):
-                nn.init.xavier_normal_(m.weight, nn.init.calculate_gain('relu'))
+                nn.init.kaiming_normal_(m.weight, nn.init.calculate_gain('relu'))
                 if m.bias is not None:
                     nn.init.constant_(m.bias, 0)
 
@@ -90,10 +90,10 @@ class UNet(nn.Module):
 if __name__=='__main__':
 
     # 1. fake data
-    images = torch.rand(32, 1, 256, 256)
+    images = torch.rand(8, 1, 256, 256).cuda(0)
 
     # 2. build the model
-    net = unet()
+    net = UNet().cuda(0)
     print('Number of parameters: {:.2f}M'.format(net.params_count() / 1e6))
 
     # 3. forward
