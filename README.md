@@ -10,8 +10,6 @@ This project aims at providing deep learning models in medical image segmentatio
 
 ### Dependencies
 
-------
-
 - pytorch
 - torchvision
 - tensorboard_logger
@@ -44,7 +42,6 @@ python train.py
 
 ### Experiment
 
-------
 
 - ##### ICH210
 
@@ -57,7 +54,5 @@ python train.py
 
 
 ### License
-
-------
 
 Only academic study
