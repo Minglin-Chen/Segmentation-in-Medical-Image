@@ -88,7 +88,7 @@ def eval_op_BraTS19(net, dataloader, device_id, criterion, num_class, epoch, log
         logger.log_value(k, v, step=epoch)
     
     # Print
-    dice = dice_coeff_dict['Mean_Specificity']
+    dice = dice_coeff_dict['Mean_Dice_Coeff']
     IoU = IoU_dict['Mean_IoU']
     sensitivity = sensitivity_dict['Mean_Sensitivity']
     specificity = specificity_dict['Mean_Specificity']
