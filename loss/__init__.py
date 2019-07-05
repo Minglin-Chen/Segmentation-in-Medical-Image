@@ -8,7 +8,6 @@ from .HybirdLoss import HybirdLoss
 crtierion = {
     'dice': DiceLoss,
     'ce': nn.CrossEntropyLoss,
-    'bce': nn.BCELoss,
     'hybrid': HybirdLoss
 }
 
